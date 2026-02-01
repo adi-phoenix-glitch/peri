@@ -1,0 +1,32 @@
+document.addEventListener('DOMContentLoaded', () => {
+ 
+  const valentines = document.querySelector('.valentines');
+  const hearts = document.querySelectorAll('.hearts > div');
+  const envelope = document.querySelector('.envelope');
+  const card = document.querySelector('.card');
+  
+
+  valentines.addEventListener('click', () => {
+    hearts.forEach(heart => {
+      heart.classList.toggle('animate-heart');
+    });
+
+    envelope.classList.toggle('open-envelope');
+    card.classList.toggle('show-card');
+  });
+
+
+  envelope.addEventListener('click', () => {
+    envelope.classList.toggle('open-envelope');
+    card.classList.toggle('show-card');
+  });
+  function resetHearts() {
+    hearts.forEach(heart => {
+      heart.classList.remove('animate-heart');
+    });
+  }
+
+  setInterval(() => {
+    resetHearts();
+  }, 5000); 
+});
